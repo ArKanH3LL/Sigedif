@@ -133,5 +133,6 @@
         <option value="https://svn.riouxsvn.com/attackpokemongo" />
       </list>
     </option>
+    <option name="mySvnCommandLine" value="C:\Program Files\TortoiseSVN\bin\svn.exe" />
   </component>
 </application>
