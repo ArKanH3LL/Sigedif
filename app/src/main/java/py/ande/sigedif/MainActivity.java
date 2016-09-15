@@ -2,6 +2,7 @@ package py.ande.sigedif;
 
 import android.Manifest;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DBHelper helper = new DBHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
 
         final Button verItitnerario = (Button) findViewById(R.id.verItinerarios);
 
@@ -80,6 +84,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        final Button conversorUTMtoGEO = (Button) findViewById(R.id.conversor);
+
+        conversorUTMtoGEO.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent5 = new Intent(MainActivity.this, ConvertUTMtoLatLong.class);
+                startActivity(intent5);
+
+            }
+        });
+
 
     }
 }
