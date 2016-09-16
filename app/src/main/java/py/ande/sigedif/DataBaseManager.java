@@ -1,5 +1,8 @@
 package py.ande.sigedif;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by asu05894 on 15/9/2016.
  */
@@ -24,4 +27,14 @@ public class DataBaseManager {
             + CN_LATen + " real, "
             + CN_LONen + " real);";
 
+    private DBHelper helper;
+    private SQLiteDatabase db;
+    public DataBaseManager(Context context) {
+
+        helper = new DBHelper(context);
+        db = helper.getWritableDatabase();
+
+        db.insert()
+        db.execSQL();
+    }
 }

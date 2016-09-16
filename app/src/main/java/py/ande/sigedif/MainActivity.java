@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DBHelper helper = new DBHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
+        DataBaseManager manager = new DataBaseManager(this);
 
         final Button verItitnerario = (Button) findViewById(R.id.verItinerarios);
 
