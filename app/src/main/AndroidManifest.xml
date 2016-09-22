@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VerItinerarios" />
+        <activity android:name=".sVerItinerarios" />
         <activity android:name=".RegistrarIncidencia" />
         <activity android:name=".EntregarFactura" />
         <activity android:name=".ConsultarSuministro" />

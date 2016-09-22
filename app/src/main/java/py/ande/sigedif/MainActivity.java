@@ -1,13 +1,13 @@
 package py.ande.sigedif;
 
-import android.Manifest;
+
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,15 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DataBaseManager manager = new DataBaseManager(this);
-
         final Button verItitnerario = (Button) findViewById(R.id.verItinerarios);
 
         verItitnerario.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent1 = new Intent(MainActivity.this, MapsActivity.class);
+                Intent intent1 = new Intent(MainActivity.this, sVerItinerarios.class);
                 startActivity(intent1);
 
                 }
