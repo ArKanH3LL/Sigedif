@@ -72,6 +72,15 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Ver Suministros"
+            android:id="@+id/verSuministros"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/titulo"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Entregar Facturas"
             android:id="@+id/entregarFacturas"
             android:layout_marginTop="29dp"

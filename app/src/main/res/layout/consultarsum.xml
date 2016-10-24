@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Consulta de Suministro"
+            android:id="@+id/textView2"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:layout_gravity="center_vertical"
+                android:hint="Introduzca nis..."
+                android:id="@+id/consulSumi" />
+
+            <Button
+                android:text="Consultar Suministro"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:id="@+id/consulCliente" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cliente:"
+            android:background="@drawable/bordesimple"
+            android:textSize="14dp"
+            android:layout_weight="2"
+            android:id="@+id/editText5"
+            android:padding="2dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordesimple"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:layout_weight="1"
+            android:text="Name"
+            android:id="@+id/nomCliente" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:background="@drawable/bordesimple"
+            android:layout_weight="2"
+            android:text="Dirección:"
+            android:id="@+id/editText7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Name"
+            android:background="@drawable/bordesimple"
+            android:textSize="14dp"
+            android:layout_weight="1"
+            android:id="@+id/dirCliente" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:background="@drawable/bordesimple"
+            android:layout_weight="2"
+            android:text="Barrio:"
+            android:id="@+id/editText9" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:background="@drawable/bordesimple"
+            android:layout_weight="1"
+            android:text="Name"
+            android:id="@+id/barrioCliente" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:background="@drawable/bordesimple"
+            android:layout_weight="2"
+            android:text="Ciudad:"
+            android:id="@+id/editText11" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:background="@drawable/bordesimple"
+            android:layout_weight="1"
+            android:text="Name"
+            android:id="@+id/ciudadCliente" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teléfono:"
+            android:background="@drawable/bordesimple"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:layout_weight="2"
+            android:id="@+id/editText13" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordesimple"
+            android:padding="2dp"
+            android:text="Name"
+            android:textSize="14dp"
+            android:layout_weight="1"
+            android:id="@+id/telefonoCliente" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Factura Entregada:"
+            android:background="@drawable/bordesimple"
+            android:padding="2dp"
+            android:textSize="14dp"
+            android:layout_weight="2"
+            android:id="@+id/editText14" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordesimple"
+            android:padding="2dp"
+            android:text="Name"
+            android:textSize="14dp"
+            android:layout_weight="1"
+            android:id="@+id/Entregado" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Entregar Ahora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/EntregarAhora"
+            android:layout_weight="1" />
+        <Button
+            android:text="Ver en Mapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/irASuministro"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

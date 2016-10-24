@@ -27,6 +27,12 @@ public class sDbHelper extends SQLiteOpenHelper {
     public static final String CN_LON="coordLON";
     public static final String CN_LATen="coordLATen";
     public static final String CN_LONen="coordLONen";
+    public static final String CN_nombre="nombre";
+    public static final String CN_direccion="direccion";
+    public static final String CN_barrio="barrio";
+    public static final String CN_ciudad="ciudad";
+    public static final String CN_telefono="telefono";
+
 
     //Informacion de la Base de DAtos
     static final String DB_NAME="itinerario.db3";

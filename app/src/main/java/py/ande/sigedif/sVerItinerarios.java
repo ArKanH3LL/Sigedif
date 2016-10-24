@@ -3,11 +3,12 @@ package py.ande.sigedif;
 /**
  * Created by asu05894 on 21/9/2016.
  */
-import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.database.Cursor;
-import android.database.SQLException;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
@@ -31,6 +31,7 @@ public class sVerItinerarios extends AppCompatActivity {
     EditText et_buscarSum;
     String buscado;
     Button bt_buscarsum;
+    Button verenmapa, limpiarcampo;
     LinearLayout linearT;
     Cursor c;
 
@@ -49,21 +50,11 @@ public class sVerItinerarios extends AppCompatActivity {
         linearT = (LinearLayout)findViewById(R.id.linearLayoutT);
         et_buscarSum = (EditText) findViewById(R.id.sumi);
         bt_buscarsum = (Button) findViewById(R.id.buscasum);
+        verenmapa = (Button) findViewById(R.id.vermapa);
+        limpiarcampo = (Button) findViewById(R.id.limpiar);
         table_layout = (TableLayout) findViewById(R.id.tableLayout1);
 
-        //Crear la Base de Datos
-        sDbHelper myDbHelper;
-        myDbHelper = new sDbHelper(this);
-        try {
-            myDbHelper.createDataBase();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-      //  try {
-//
-  //      }catch(SQLException sqle){
-    //        throw sqle;
-      //  }
+
         sqlcon.open();
         c = sqlcon.readEntry();
         BuildTable();
@@ -76,6 +67,25 @@ public class sVerItinerarios extends AppCompatActivity {
             }
         });
 
+        verenmapa.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(sVerItinerarios.this, MapsActivity.class);
+                intent1.putExtra("buscado",buscado);
+                startActivity(intent1);
+            }
+        });
+
+        limpiarcampo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_buscarSum.setText(null);
+                sqlcon.open();
+                c = sqlcon.readEntry();
+                BuildTable();
+            }
+        });
+
     }
 
     private void BuildTable() {
@@ -84,9 +94,9 @@ public class sVerItinerarios extends AppCompatActivity {
         int cols = c.getColumnCount();
         c.moveToFirst();
 
+
         // outer for loop
         for (int i = 0; i < rows; i++) {
-
             TableRow row = new TableRow(this);
             row.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.WRAP_CONTENT));
@@ -97,11 +107,17 @@ public class sVerItinerarios extends AppCompatActivity {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
                         LayoutParams.WRAP_CONTENT));
-                //tv.setBackgroundResource(R.drawable.cell_shape);
                 tv.setGravity(Gravity.CENTER);
                 tv.setTextSize(10);
                 tv.setPadding(0, 2, 0, 2);
-
+                tv.setBackgroundResource(R.drawable.bordesimple);
+                String entregado = c.getString(6);
+                if (entregado==null) {
+                    tv.setTextColor(Color.RED);
+                }
+                else{
+                    tv.setTextColor(Color.BLACK);
+                }
                 tv.setText(c.getString(j));
 
                 row.addView(tv);
@@ -126,7 +142,7 @@ public class sVerItinerarios extends AppCompatActivity {
             table_layout.removeAllViews();
 
             PD = new ProgressDialog(sVerItinerarios.this);
-            PD.setTitle("Um momento...");
+            PD.setTitle("Un momento...");
             PD.setMessage("Buscando...");
             PD.setCancelable(false);
             PD.show();
@@ -138,7 +154,6 @@ public class sVerItinerarios extends AppCompatActivity {
             // inserting data
             sqlcon.open();
             c = sqlcon.buscarSuministro(buscado);
-            // BuildTable();
             return null;
         }
 

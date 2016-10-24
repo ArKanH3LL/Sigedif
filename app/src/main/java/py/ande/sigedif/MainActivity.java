@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.IOException;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +17,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Crear la Base de Datos
+        sDbHelper myDbHelper;
+        myDbHelper = new sDbHelper(this);
+        try {
+            myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+
 
         final Button verItitnerario = (Button) findViewById(R.id.verItinerarios);
 
@@ -27,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
+
+        final Button verSuministros = (Button) findViewById(R.id.verSuministros);
+
+        verSuministros.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent1 = new Intent(MainActivity.this, VerSuministros.class);
+                startActivity(intent1);
+
+            }
+        });
 
         final Button entregarFactura = (Button) findViewById(R.id.entregarFacturas);
 
